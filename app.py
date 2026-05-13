@@ -162,6 +162,8 @@ def validate_email(email):
     pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
     return re.match(pattern, email) is not None
 
+app = create_app()
 if __name__ == '__main__':
     app = create_app('development')
     app.run(debug=True, host='127.0.0.1', port=5000)
+
