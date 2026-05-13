@@ -8,6 +8,14 @@ class Config:
     TESTING = False
     PERMANENT_SESSION_LIFETIME = timedelta(days=7)
     
+    # Email configuration
+    MAIL_SERVER = os.environ.get('MAIL_SERVER') or 'smtp.gmail.com'
+    MAIL_PORT = int(os.environ.get('MAIL_PORT') or 587)
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'True').lower() == 'true'
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or 'pcpl2626@gmail.com'
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or ''
+    MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER') or 'pcpl2626@gmail.com'
+    
 class DevelopmentConfig(Config):
     """Development configuration."""
     DEBUG = True

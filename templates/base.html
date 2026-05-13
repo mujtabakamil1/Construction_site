@@ -107,22 +107,53 @@
         
         .nav-link {
             position: relative;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            color: #000000;
+            padding-bottom: 2px;
         }
         
         .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
+            height: 3px;
             bottom: -5px;
             left: 0;
-            background-color: white;
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, #4a4a4a 0%, #3a3a3a 100%);
+            transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover {
+            color: #4a4a4a;
+            transform: translateY(-2px);
+            letter-spacing: 0.5px;
         }
         
         .nav-link:hover::after {
             width: 100%;
+        }
+        
+        .nav-link:active {
+            transform: translateY(0px);
+            letter-spacing: 0px;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: rgba(74, 74, 74, 0.05);
+            transition: height 0.3s ease;
+            border-radius: 4px;
+            z-index: -1;
+        }
+        
+        .nav-link:hover::before {
+            height: 100%;
         }
         
         .input-field {

@@ -1,9 +1,17 @@
 from flask import Flask, render_template, request, jsonify, send_from_directory
 from flask_cors import CORS
+from flask_mail import Mail, Message
 import os
+from dotenv import load_dotenv
 from config import config
 from datetime import datetime
 import re
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Initialize mail object
+mail = Mail()
 
 def create_app(config_name='development'):
     """Application factory function."""
@@ -13,6 +21,9 @@ def create_app(config_name='development'):
     
     # Load configuration
     app.config.from_object(config[config_name])
+    
+    # Initialize Flask-Mail with app
+    mail.init_app(app)
     
     # Enable CORS
     CORS(app)
@@ -60,7 +71,29 @@ def register_routes(app):
                 'timestamp': datetime.now().isoformat()
             }
             
-            # TODO: In production, save to database or send email
+            # Send email notification
+            try:
+                msg = Message(
+                    subject=f"New Contact Form Submission: {contact_data['subject']}",
+                    recipients=['pcpl2626@gmail.com'],
+                    html=f"""
+                    <h2>New Contact Form Submission</h2>
+                    <p><strong>Name:</strong> {contact_data['name']}</p>
+                    <p><strong>Email:</strong> {contact_data['email']}</p>
+                    <p><strong>Phone:</strong> {contact_data['phone'] or 'Not provided'}</p>
+                    <p><strong>Subject:</strong> {contact_data['subject']}</p>
+                    <p><strong>Message:</strong></p>
+                    <p>{contact_data['message']}</p>
+                    <p><strong>Received at:</strong> {contact_data['timestamp']}</p>
+                    """,
+                    reply_to=contact_data['email']
+                )
+                mail.send(msg)
+                print(f"Email sent successfully for contact: {contact_data['name']}")
+            except Exception as e:
+                print(f"Warning: Email sending failed - {str(e)}. Form data will still be accepted.")
+                # Continue processing even if email fails
+            
             print(f"Contact form received: {contact_data}")
             
             return jsonify({
