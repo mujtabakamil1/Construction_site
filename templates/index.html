@@ -170,7 +170,7 @@
             <!-- Video Section -->
             <div class="my-20 py-16">
                 <h3 class="text-3xl font-bold text-center mb-12">Watch Our Work</h3>
-                <div class="max-w-4xl mx-auto bg-gray-200 rounded-lg overflow-hidden shadow-lg" style="aspect-ratio: 16/9;">
+                <div class="max-w-6xl mx-auto bg-gray-200 rounded-lg overflow-hidden shadow-lg" style="aspect-ratio: 16/9;">
                     <iframe class="w-full h-full" src="https://www.youtube.com/embed/xzuKh89vofk" 
                             title="PCS Puri Construction Services" frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -183,23 +183,20 @@
             <div class="mt-16">
                 <h3 class="text-3xl font-bold text-center mb-12">Our Milestones</h3>
                 <div class="max-w-4xl mx-auto">
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
                         <div class="legacy-item">
-                            <p class="text-2xl font-bold text-gray-800 mb-2">2010</p>
+                            <p class="text-2xl font-bold text-gray-800 mb-2">2024</p>
                             <p class="text-gray-600">Company Founded</p>
                         </div>
                         <div class="legacy-item">
-                            <p class="text-2xl font-bold text-gray-800 mb-2">2015</p>
+                            <p class="text-2xl font-bold text-gray-800 mb-2">2025</p>
                             <p class="text-gray-600">Expanded to Commercial Projects</p>
                         </div>
                         <div class="legacy-item">
-                            <p class="text-2xl font-bold text-gray-800 mb-2">2020</p>
-                            <p class="text-gray-600">100th Project Completed</p>
+                            <p class="text-2xl font-bold text-gray-800 mb-2">2026</p>
+                            <p class="text-gray-600">10th Project Completed</p>
                         </div>
-                        <div class="legacy-item">
-                            <p class="text-2xl font-bold text-gray-800 mb-2">2024</p>
-                            <p class="text-gray-600">Award for Excellence</p>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -238,7 +235,7 @@
             </div>
             
             <!-- Contact Form -->
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
                 <form id="contact-form" class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
@@ -311,7 +308,7 @@
                     </ul>
                 </div>
                <div>
-    <h4 class="text-xl font-bold mb-6 text-gray-800">Follow Us</h4>
+    <h4 class="text-xl font-bold mb-6 text-gray-800">Connect With Us</h4>
     <div class="flex space-x-8 items-start">
         <!-- Facebook -->
         <div class="text-center">
@@ -366,8 +363,8 @@
             const container = document.getElementById('services-container');
             
             container.innerHTML = services.map(service => `
-                <div class="service-card p-6 rounded-lg bg-white">
-                    <div class="text-4xl mb-4">${service.icon}</div>
+                <div class="service-card p-6 rounded-lg bg-white text-center">
+                    <div class="text-5xl mb-4 flex justify-center">${service.icon}</div>
                     <h3 class="text-xl font-bold mb-3 text-gray-800">${service.name}</h3>
                     <p class="text-gray-600">${service.description}</p>
                 </div>

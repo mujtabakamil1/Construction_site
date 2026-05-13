@@ -128,13 +128,13 @@ def register_routes(app):
                 'id': 3,
                 'name': 'Renovation & Remodeling',
                 'description': 'Transform your existing spaces',
-                'icon': '🔨'
+                'icon': '🧱🔨'
             },
             {
                 'id': 4,
                 'name': 'Infrastructure',
                 'description': 'Durable infrastructure development',
-                'icon': '🌉'
+                'icon': '🏗️'
             }
         ]
         return jsonify(services), 200
