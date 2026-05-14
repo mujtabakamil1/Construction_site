@@ -73,6 +73,10 @@ def register_routes(app):
             
             # Send email notification
             try:
+                print(f"[DEBUG] Attempting to send email to pcpl2626@gmail.com")
+                print(f"[DEBUG] Mail config - Server: {app.config.get('MAIL_SERVER')}, Port: {app.config.get('MAIL_PORT')}")
+                print(f"[DEBUG] Mail config - Username: {app.config.get('MAIL_USERNAME')}")
+                
                 msg = Message(
                     subject=f"New Contact Form Submission: {contact_data['subject']}",
                     recipients=['pcpl2626@gmail.com'],
@@ -88,10 +92,13 @@ def register_routes(app):
                     """,
                     reply_to=contact_data['email']
                 )
+                print(f"[DEBUG] Message object created, attempting send...")
                 mail.send(msg)
-                print(f"Email sent successfully for contact: {contact_data['name']}")
+                print(f"[SUCCESS] Email sent successfully for contact: {contact_data['name']}")
             except Exception as e:
-                print(f"Warning: Email sending failed - {str(e)}. Form data will still be accepted.")
+                print(f"[ERROR] Email sending failed - {str(e)}")
+                import traceback
+                traceback.print_exc()
                 # Continue processing even if email fails
             
             print(f"Contact form received: {contact_data}")
