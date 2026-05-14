@@ -96,7 +96,7 @@ def register_routes(app):
                 if app.config.get('USE_SENDGRID') and SendGridAPIClient:
                     print(f"[DEBUG] Using SendGrid to send email")
                     
-                    from sendgrid.helpers.mail import Email, Content
+                    from sendgrid.helpers.mail import Email, Content, ReplyTo
                     
                     sg = SendGridAPIClient(app.config.get('SENDGRID_API_KEY'))
                     from_email = Email(app.config.get('MAIL_DEFAULT_SENDER'))
@@ -104,8 +104,13 @@ def register_routes(app):
                     subject = f"New Contact Form Submission: {contact_data['subject']}"
                     content = Content("text/html", email_html)
                     
-                    msg = SGMail(from_email, subject, to_email, content)
-                    msg.reply_to = Email(contact_data['email'])
+                    msg = SGMail(
+                        from_email=from_email,
+                        to_emails=to_email,
+                        subject=subject,
+                        html_content=email_html
+                    )
+                    msg.reply_to = ReplyTo(contact_data['email'])
                     
                     response = sg.client.mail.send.post(request_body=msg.get())
                     print(f"[SUCCESS] Email sent via SendGrid with status code: {response.status_code}")
