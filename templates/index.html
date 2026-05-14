@@ -220,17 +220,22 @@
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center">
                     <i class="fas fa-map-marker-alt text-gray-800 text-2xl sm:text-3xl mb-4"></i>
                     <h3 class="text-lg sm:text-xl font-bold mb-2">Address</h3>
-                    <p class="text-sm sm:text-base text-gray-600">1st Floor 122 Abu Bakar Block <br>New Garden town Lahore</p>
+                    <p class="text-sm sm:text-base text-gray-600"><strong>1st Floor 122 Abu Bakar Block <br>New Garden town Lahore</strong></p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center">
                     <i class="fas fa-phone text-gray-800 text-2xl sm:text-3xl mb-4"></i>
                     <h3 class="text-lg sm:text-xl font-bold mb-2">Phone</h3>
-                    <p class="text-sm sm:text-base text-gray-600"><strong>+92 303 0755552</strong><br><strong>+92 301 4421800</strong><br>Available 9:00 AM - 9:00 PM</p>
+                    <p class="text-sm sm:text-base text-gray-600"><strong>+92 303 0755552</strong><br><strong>+92 301 4421800</strong><br><strong>Available 9:00 AM - 9:00 PM PKT</strong></p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center">
                     <i class="fas fa-envelope text-gray-800 text-2xl sm:text-3xl mb-4"></i>
                     <h3 class="text-lg sm:text-xl font-bold mb-2">Email</h3>
-                    <p class="text-sm sm:text-base text-gray-600">pcpl2626@gmail.com<br>Available 24/7</p>
+                    <p class="text-sm sm:text-base text-gray-600">
+                        <strong class="copy-email cursor-pointer hover:text-blue-600 transition-colors" 
+                                title="Click to copy email">pcpl2626@gmail.com</strong>
+                        <br><strong>Available 24/7</strong>
+                    </p>
+                    <p class="text-xs text-gray-500 mt-2 copy-feedback" style="display:none;">Copied to clipboard!</p>
                 </div>
             </div>
             
@@ -458,6 +463,23 @@
                 }
             });
         }
+
+        // Copy Email to Clipboard
+        const copyEmailElements = document.querySelectorAll('.copy-email');
+        copyEmailElements.forEach(element => {
+            element.addEventListener('click', () => {
+                const email = element.textContent;
+                navigator.clipboard.writeText(email).then(() => {
+                    const feedback = element.parentElement.nextElementSibling;
+                    feedback.style.display = 'block';
+                    setTimeout(() => {
+                        feedback.style.display = 'none';
+                    }, 2000);
+                }).catch(() => {
+                    alert('Failed to copy email');
+                });
+            });
+        });
 
         // QR Code Logic - Generate 4 QR codes for social media
         function loadQRCode() {
