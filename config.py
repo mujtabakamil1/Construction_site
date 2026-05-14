@@ -16,6 +16,10 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or ''
     MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER') or 'pcpl2626@gmail.com'
     
+    # SendGrid configuration
+    SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY') or ''
+    USE_SENDGRID = bool(os.environ.get('SENDGRID_API_KEY'))
+    
 class DevelopmentConfig(Config):
     """Development configuration."""
     DEBUG = True

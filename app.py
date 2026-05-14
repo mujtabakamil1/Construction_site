@@ -13,6 +13,14 @@ load_dotenv()
 # Initialize mail object
 mail = Mail()
 
+# Import SendGrid if API key is available
+try:
+    from sendgrid import SendGridAPIClient
+    from sendgrid.helpers.mail import Mail as SGMail
+except ImportError:
+    SendGridAPIClient = None
+    SGMail = None
+
 def create_app(config_name='development'):
     """Application factory function."""
     app = Flask(__name__, 
@@ -73,28 +81,50 @@ def register_routes(app):
             
             # Send email notification
             try:
-                print(f"[DEBUG] Attempting to send email to pcpl2626@gmail.com")
-                print(f"[DEBUG] Mail config - Server: {app.config.get('MAIL_SERVER')}, Port: {app.config.get('MAIL_PORT')}")
-                print(f"[DEBUG] Mail config - Username: {app.config.get('MAIL_USERNAME')}")
+                email_html = f"""
+                <h2>New Contact Form Submission</h2>
+                <p><strong>Name:</strong> {contact_data['name']}</p>
+                <p><strong>Email:</strong> {contact_data['email']}</p>
+                <p><strong>Phone:</strong> {contact_data['phone'] or 'Not provided'}</p>
+                <p><strong>Subject:</strong> {contact_data['subject']}</p>
+                <p><strong>Message:</strong></p>
+                <p>{contact_data['message']}</p>
+                <p><strong>Received at:</strong> {contact_data['timestamp']}</p>
+                """
                 
-                msg = Message(
-                    subject=f"New Contact Form Submission: {contact_data['subject']}",
-                    recipients=['pcpl2626@gmail.com'],
-                    html=f"""
-                    <h2>New Contact Form Submission</h2>
-                    <p><strong>Name:</strong> {contact_data['name']}</p>
-                    <p><strong>Email:</strong> {contact_data['email']}</p>
-                    <p><strong>Phone:</strong> {contact_data['phone'] or 'Not provided'}</p>
-                    <p><strong>Subject:</strong> {contact_data['subject']}</p>
-                    <p><strong>Message:</strong></p>
-                    <p>{contact_data['message']}</p>
-                    <p><strong>Received at:</strong> {contact_data['timestamp']}</p>
-                    """,
-                    reply_to=contact_data['email']
-                )
-                print(f"[DEBUG] Message object created, attempting send...")
-                mail.send(msg)
-                print(f"[SUCCESS] Email sent successfully for contact: {contact_data['name']}")
+                # Use SendGrid if API key is available, otherwise use Gmail SMTP
+                if app.config.get('USE_SENDGRID') and SendGridAPIClient:
+                    print(f"[DEBUG] Using SendGrid to send email")
+                    
+                    from sendgrid.helpers.mail import Email, Content
+                    
+                    sg = SendGridAPIClient(app.config.get('SENDGRID_API_KEY'))
+                    from_email = Email(app.config.get('MAIL_DEFAULT_SENDER'))
+                    to_email = Email('pcpl2626@gmail.com')
+                    subject = f"New Contact Form Submission: {contact_data['subject']}"
+                    content = Content("text/html", email_html)
+                    
+                    msg = SGMail(from_email, subject, to_email, content)
+                    msg.reply_to = Email(contact_data['email'])
+                    
+                    response = sg.client.mail.send.post(request_body=msg.get())
+                    print(f"[SUCCESS] Email sent via SendGrid with status code: {response.status_code}")
+                    
+                else:
+                    print(f"[DEBUG] Using Gmail SMTP to send email")
+                    print(f"[DEBUG] Mail config - Server: {app.config.get('MAIL_SERVER')}, Port: {app.config.get('MAIL_PORT')}")
+                    print(f"[DEBUG] Mail config - Username: {app.config.get('MAIL_USERNAME')}")
+                    
+                    msg = Message(
+                        subject=f"New Contact Form Submission: {contact_data['subject']}",
+                        recipients=['pcpl2626@gmail.com'],
+                        html=email_html,
+                        reply_to=contact_data['email']
+                    )
+                    print(f"[DEBUG] Message object created, attempting send...")
+                    mail.send(msg)
+                    print(f"[SUCCESS] Email sent successfully for contact: {contact_data['name']}")
+                    
             except Exception as e:
                 print(f"[ERROR] Email sending failed - {str(e)}")
                 import traceback
