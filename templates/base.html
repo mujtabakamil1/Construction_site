@@ -37,6 +37,20 @@
             position: relative;
         }
         
+        @media (max-width: 768px) {
+            .hero-section {
+                background-attachment: scroll;
+                background-size: cover;
+                min-height: 80vh;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-section {
+                min-height: 60vh;
+            }
+        }
+        
         .hero-section::before {
             content: '';
             position: absolute;
@@ -92,6 +106,20 @@
             border: 1px solid rgba(80, 80, 80, 0.3);
         }
         
+        @media (max-width: 768px) {
+            .service-card {
+                padding: 1.25rem !important;
+            }
+            
+            .service-card h3 {
+                font-size: 1rem;
+            }
+            
+            .service-card p {
+                font-size: 0.875rem;
+            }
+        }
+        
         .project-card {
             background: white;
             border-radius: 12px;
@@ -103,6 +131,12 @@
         .project-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 640px) {
+            .project-card img {
+                max-height: 250px;
+            }
         }
         
         .nav-link {
@@ -159,6 +193,7 @@
         .input-field {
             transition: all 0.3s ease;
             border: 1px solid #e0e0e0;
+            min-height: 44px;
         }
         
         .input-field:focus {
@@ -166,14 +201,29 @@
             box-shadow: 0 0 0 3px rgba(80, 80, 80, 0.1);
         }
         
+        @media (max-width: 640px) {
+            .input-field {
+                min-height: 48px;
+                font-size: 16px;
+            }
+        }
+        
         .btn-primary {
             background: linear-gradient(135deg, #4a4a4a 0%, #3a3a3a 100%);
             transition: all 0.3s ease;
+            min-height: 44px;
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(80, 80, 80, 0.3);
+        }
+        
+        @media (max-width: 640px) {
+            .btn-primary {
+                min-height: 48px;
+                font-size: 1rem;
+            }
         }
         
         .section-title {
@@ -204,6 +254,16 @@
         .legacy-item:hover {
             transform: translateX(10px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 640px) {
+            .legacy-item {
+                padding: 15px;
+            }
+            
+            .legacy-item p:first-child {
+                font-size: 1.5rem;
+            }
         }
     </style>
     {% block extra_head %}{% endblock %}

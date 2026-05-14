@@ -42,17 +42,17 @@
     <!-- Hero Section -->
     <section id="home" class="hero-section pt-26" style="background-image: url('{{ url_for('static', filename='images/hero-background.jpg') }}');">
         <div class="text-center text-white fade-in px-4">
-            <h1 class="text-2xl md:text-3xl font-bold mb-6 leading-tight">
+            <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
                 <p>Building Excellence, Honoring Legacy | Residential & Commercial </p>Construction Specialists in Lahore.
             </h1>
            <!-- <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl mx-auto">
                 PCS Puri Construction Services - Transforming Dreams into Reality with Quality and Innovation
             </p> -->
-            <div class="flex flex-col sm:flex-row gap-5 justify-center">
-                <a href="#contact" class="px-8 py-3 bg-white text-black font-bold rounded-lg inline-block hover:bg-gray-200 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center">
+                <a href="#contact" class="px-6 sm:px-8 py-2 sm:py-3 bg-white text-black font-bold rounded-lg inline-block hover:bg-gray-200 hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base">
                     Get in Touch
                 </a>
-                <a href="#about" class="px-8 py-3 border-2 border-white text-white font-bold rounded-lg inline-block hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105">
+                <a href="#about" class="px-6 sm:px-8 py-2 sm:py-3 border-2 border-white text-white font-bold rounded-lg inline-block hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 text-sm sm:text-base">
                     Learn More
                 </a>
             </div>
@@ -60,55 +60,55 @@
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="py-16 md:py-24 bg-white">
+    <section id="about\" class="py-12 sm:py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 slide-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            <div class="text-center mb-8 sm:mb-12 slide-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
                     <span class="section-title">About Us</span>
                 </h2>
-                <p class="text-gray-600 text-lg max-w-3xl mx-auto mt-8">
+                <p class="text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto mt-4 sm:mt-8">
                 PURI CONSTRUCTION SERVICES represents the intersection of a lifelong passion for building and a profound family heritage of service and integrity. Based in Lahore, our firm specializes in the construction of high-quality residential homes and commercial offices. Building strong structures while turning our clients’ visions into lasting realities through superior craftsmanship and ethical practices.                </p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div class="slide-up">
                     <img src="{{ url_for('static', filename='images/AboutUs.png') }}" 
                          alt="Construction Site" 
-                         class="rounded-lg shadow-lg h-80 w-full object-contain hover:shadow-2xl transition-shadow duration-300"
+                         class="rounded-lg shadow-lg h-60 sm:h-72 md:h-80 w-full object-contain hover:shadow-2xl transition-shadow duration-300"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg p-8 h-80 flex items-center justify-center hidden"
+                    <div class="bg-gradient-to-br from-purple-100 to-purple-50 rounded-lg p-8 h-60 sm:h-72 md:h-80 flex items-center justify-center hidden"
                          style="display: none;">
-                        <i class="fas fa-hard-hat text-purple-400 text-9xl opacity-50"></i>
+                        <i class="fas fa-hard-hat text-purple-400 text-6xl sm:text-7xl md:text-9xl opacity-50"></i>
                     </div>
                 </div>
                 
-                <div class="slide-up space-y-6">
+                <div class="slide-up space-y-4 sm:space-y-6">
                     <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Our Mission</h3>
-                        <p class="text-gray-600 leading-relaxed">
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">Our Mission</h3>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
                             To deliver world-class construction solutions that exceed client expectations through innovation, quality craftsmanship, and sustainable practices.
                         </p>
                     </div>
                     
                     <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Our Vision</h3>
-                        <p class="text-gray-600 leading-relaxed">
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">Our Vision</h3>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
                             To be the most trusted construction company in the region, known for excellence, reliability, and customer satisfaction.
                         </p>
                     </div>
                     
-                    <div class="grid grid-cols-3 gap-4 pt-6">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 pt-4 sm:pt-6">
                         <div class="text-center">
-                            <p class="text-3xl font-bold text-gray-800">3+</p>
-                            <p class="text-gray-600 text-sm">Years Experience</p>
+                            <p class="text-2xl sm:text-3xl font-bold text-gray-800">3+</p>
+                            <p class="text-gray-600 text-xs sm:text-sm">Years Experience</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-3xl font-bold text-gray-800">10+</p>
-                            <p class="text-gray-600 text-sm">Projects</p>
+                            <p class="text-2xl sm:text-3xl font-bold text-gray-800">10+</p>
+                            <p class="text-gray-600 text-xs sm:text-sm">Projects</p>
                         </div>
-                        <div class="text-center">
-                            <p class="text-3xl font-bold text-gray-800">20+</p>
-                            <p class="text-gray-600 text-sm">Team Members</p>
+                        <div class="text-center col-span-2 md:col-span-1">
+                            <p class="text-2xl sm:text-3xl font-bold text-gray-800">20+</p>
+                            <p class="text-gray-600 text-xs sm:text-sm">Team Members</p>
                         </div>
                     </div>
                 </div>
@@ -117,36 +117,36 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 md:py-24 bg-gray-50">
+    <section id="services" class="py-12 sm:py-16 md:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 slide-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            <div class="text-center mb-8 sm:mb-12 slide-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
                     <span class="section-title">Our Services</span>
                 </h2>
-                <p class="text-gray-600 text-lg max-w-3xl mx-auto mt-8">
+                <p class="text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto mt-4 sm:mt-8">
                     Comprehensive construction solutions tailored to meet your specific needs
                 </p>
             </div>
             
-            <div id="services-container" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div id="services-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                 <!-- Services will be loaded here by JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- Projects/Legacy Section -->
-    <section id="legacy" class="py-16 md:py-24 bg-white">
+    <section id="legacy" class="py-12 sm:py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 slide-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            <div class="text-center mb-8 sm:mb-12 slide-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
                     <span class="section-title">Our Legacy</span>
                 </h2>
-                <p class="text-gray-600 text-lg max-w-3xl mx-auto mt-8">
+                <p class="text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto mt-4 sm:mt-8">
                     When your dream meet our Expertise.
                 </p>
             </div>
             
-            <div class="grid grid-cols-2 gap-20 mb-20" id="projects-container">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12 md:gap-20 mb-12 md:mb-20" id="projects-container">
                 <!-- Projects will be loaded here by JavaScript -->
             </div>
             
@@ -168,8 +168,8 @@
             </div>
             
             <!-- Video Section -->
-            <div class="my-20 py-16">
-                <h3 class="text-3xl font-bold text-center mb-12">Watch Our Work</h3>
+            <div class="my-12 md:my-20 py-8 md:py-16 px-4 sm:px-0">
+                <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-12">Watch Our Work</h3>
                 <div class="max-w-6xl mx-auto bg-gray-200 rounded-lg overflow-hidden shadow-lg" style="aspect-ratio: 16/9;">
                     <iframe class="w-full h-full" src="https://www.youtube.com/embed/xzuKh89vofk" 
                             title="PCS Puri Construction Services" frameborder="0" 
@@ -180,10 +180,10 @@
             </div>
             
             <!-- Timeline -->
-            <div class="mt-16">
-                <h3 class="text-3xl font-bold text-center mb-12">Our Milestones</h3>
+            <div class="mt-12 md:mt-16 px-4 sm:px-0">
+                <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-12">Our Milestones</h3>
                 <div class="max-w-4xl mx-auto">
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                         <div class="legacy-item">
                             <p class="text-2xl font-bold text-gray-800 mb-2">2024</p>
                             <p class="text-gray-600">Company Founded</p>
@@ -204,78 +204,78 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-24 bg-gray-50">
+    <section id="contact" class="py-12 sm:py-16 md:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 slide-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            <div class="text-center mb-8 sm:mb-12 slide-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
                     <span class="section-title">Contact Us</span>
                 </h2>
-                <p class="text-gray-600 text-lg max-w-3xl mx-auto mt-8">
+                <p class="text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto mt-4 sm:mt-8">
                     Get in touch with us today. We'd love to discuss your project!
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 md:mb-12">
                 <!-- Contact Info Cards -->
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-map-marker-alt text-gray-800 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Address</h3>
-                    <p class="text-gray-600">1st Floor 122 Abu Bakar Block <br>New Garden town Lahore</p>
+                    <i class="fas fa-map-marker-alt text-gray-800 text-2xl sm:text-3xl mb-4"></i>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2">Address</h3>
+                    <p class="text-sm sm:text-base text-gray-600">1st Floor 122 Abu Bakar Block <br>New Garden town Lahore</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-phone text-gray-800 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Phone</h3>
-                    <p class="text-gray-600"><strong>+92 303 0755552</strong><br><strong>+92 301 4421800</strong><br>Available 24/7</p>
+                    <i class="fas fa-phone text-gray-800 text-2xl sm:text-3xl mb-4"></i>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2">Phone</h3>
+                    <p class="text-sm sm:text-base text-gray-600"><strong>+92 303 0755552</strong><br><strong>+92 301 4421800</strong><br>Available 24/7</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-envelope text-gray-800 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Email</h3>
-                    <p class="text-gray-600">pcpl2626@gmail.com</p>
+                    <i class="fas fa-envelope text-gray-800 text-2xl sm:text-3xl mb-4"></i>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2">Email</h3>
+                    <p class="text-sm sm:text-base text-gray-600">pcpl2626@gmail.com</p>
                 </div>
             </div>
             
             <!-- Contact Form -->
-            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
+            <div class="max-w-4xl mx-auto bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg">
+                <form id="contact-form" class="space-y-4 sm:space-y-6">
+                    <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2">Full Name</label>
+                            <label class="block text-gray-700 font-bold mb-2 text-sm sm:text-base">Full Name</label>
                             <input type="text" id="name" name="name" required 
-                                   class="input-field w-full px-4 py-3 rounded-lg focus:outline-none" 
+                                   class="input-field w-full px-4 py-3 rounded-lg focus:outline-none text-sm sm:text-base" 
                                    placeholder="Your Name">
                         </div>
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2">Email</label>
+                            <label class="block text-gray-700 font-bold mb-2 text-sm sm:text-base">Email</label>
                             <input type="email" id="email" name="email" required 
-                                   class="input-field w-full px-4 py-3 rounded-lg focus:outline-none" 
+                                   class="input-field w-full px-4 py-3 rounded-lg focus:outline-none text-sm sm:text-base" 
                                    placeholder="your@email.com">
                         </div>
                     </div>
                     
-                    <div class="grid md:grid-cols-2 gap-6">
+                    <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2">Phone (Optional)</label>
+                            <label class="block text-gray-700 font-bold mb-2 text-sm sm:text-base">Phone (Optional)</label>
                             <input type="tel" id="phone" name="phone" 
-                                   class="input-field w-full px-4 py-3 rounded-lg focus:outline-none" 
+                                   class="input-field w-full px-4 py-3 rounded-lg focus:outline-none text-sm sm:text-base" 
                                    placeholder="+92 XXXXXXXXXX">
                         </div>
                         <div>
-                            <label class="block text-gray-700 font-bold mb-2">Subject</label>
+                            <label class="block text-gray-700 font-bold mb-2 text-sm sm:text-base">Subject</label>
                             <input type="text" id="subject" name="subject" required 
-                                   class="input-field w-full px-4 py-3 rounded-lg focus:outline-none" 
+                                   class="input-field w-full px-4 py-3 rounded-lg focus:outline-none text-sm sm:text-base" 
                                    placeholder="Project Inquiry">
                         </div>
                     </div>
                     
                     <div>
-                        <label class="block text-gray-700 font-bold mb-2">Message</label>
+                        <label class="block text-gray-700 font-bold mb-2 text-sm sm:text-base">Message</label>
                         <textarea id="message" name="message" required rows="5" 
-                                  class="input-field w-full px-4 py-3 rounded-lg focus:outline-none resize-none" 
+                                  class="input-field w-full px-4 py-3 rounded-lg focus:outline-none resize-none text-sm sm:text-base" 
                                   placeholder="Tell us about your project..."></textarea>
                     </div>
                     
                     <div>
-                        <button type="submit" class="btn-primary w-full py-3 text-white font-bold rounded-lg">
+                        <button type="submit" class="btn-primary w-full py-3 text-white font-bold rounded-lg text-sm sm:text-base">
                             Send Message
                         </button>
                     </div>
@@ -287,9 +287,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white text-gray-800 py-12 border-t border-gray-200">
+    <footer class="bg-white text-gray-800 py-8 sm:py-12 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
                         <img src="{{ url_for('static', filename='images/logo.png') }}" 
@@ -308,30 +308,30 @@
                     </ul>
                 </div>
                <div>
-    <h4 class="text-xl font-bold mb-6 text-gray-800">Connect With Us</h4>
-    <div class="flex space-x-8 items-start">
+    <h4 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-gray-800">Connect With Us</h4>
+    <div class="flex gap-2 sm:gap-3 md:gap-6 items-start justify-center sm:justify-start">
         <!-- Facebook -->
         <div class="text-center">
-            <a href="https://www.facebook.com/share/17hYMNmkn7/" class="text-blue-600 hover:text-blue-800 text-5xl transition-colors inline-block mb-3" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <div id="qr-facebook" class="bg-white p-2 rounded-lg flex justify-center"></div>
+            <a href="https://www.facebook.com/share/17hYMNmkn7/" class="text-blue-600 hover:text-blue-800 text-2xl sm:text-3xl md:text-5xl transition-colors inline-block mb-1 sm:mb-2 md:mb-3" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <div id="qr-facebook" class="bg-white p-1 rounded-lg flex justify-center hidden sm:flex text-xs md:text-base"></div>
         </div>
         
         <!-- YouTube -->
         <div class="text-center">
-            <a href="https://youtube.com/@puriconstructionservices?si=0ZmFyfXYxe2LijEj/" class="text-red-600 hover:text-red-800 text-5xl transition-colors inline-block mb-3" title="YouTube"><i class="fab fa-youtube"></i></a>
-            <div id="qr-youtube" class="bg-white p-2 rounded-lg flex justify-center"></div>
+            <a href="https://youtube.com/@puriconstructionservices?si=0ZmFyfXYxe2LijEj/" class="text-red-600 hover:text-red-800 text-2xl sm:text-3xl md:text-5xl transition-colors inline-block mb-1 sm:mb-2 md:mb-3" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <div id="qr-youtube" class="bg-white p-1 rounded-lg flex justify-center hidden sm:flex text-xs md:text-base"></div>
         </div>
         
         <!-- LinkedIn -->
         <div class="text-center">
-            <a href="https://www.linkedin.com/company/puri-construction-services/" class="text-blue-700 hover:text-blue-900 text-5xl transition-colors inline-block mb-3" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <div id="qr-linkedin" class="bg-white p-2 rounded-lg flex justify-center"></div>
+            <a href="https://www.linkedin.com/company/puri-construction-services/" class="text-blue-700 hover:text-blue-900 text-2xl sm:text-3xl md:text-5xl transition-colors inline-block mb-1 sm:mb-2 md:mb-3" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <div id="qr-linkedin" class="bg-white p-1 rounded-lg flex justify-center hidden sm:flex text-xs md:text-base"></div>
         </div>
         
         <!-- Instagram -->
         <div class="text-center">
-            <a href="https://www.instagram.com/puriconstructions?igsh=MWhoeW0xY3JxbXRyZw==" class="text-pink-600 hover:text-pink-800 text-5xl transition-colors inline-block mb-3" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <div id="qr-instagram" class="bg-white p-2 rounded-lg flex justify-center"></div>
+            <a href="https://www.instagram.com/puriconstructions?igsh=MWhoeW0xY3JxbXRyZw==" class="text-pink-600 hover:text-pink-800 text-2xl sm:text-3xl md:text-5xl transition-colors inline-block mb-1 sm:mb-2 md:mb-3" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <div id="qr-instagram" class="bg-white p-1 rounded-lg flex justify-center hidden sm:flex text-xs md:text-base"></div>
         </div>
     </div>
 </div>
