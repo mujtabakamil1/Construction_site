@@ -93,12 +93,18 @@ def register_routes(app):
                 """
                 
                 # Use SendGrid if API key is available, otherwise use Gmail SMTP
-                if app.config.get('USE_SENDGRID') and SendGridAPIClient:
+                api_key = app.config.get('SENDGRID_API_KEY')
+                use_sg = app.config.get('USE_SENDGRID')
+                print(f"[DEBUG] API Key available: {bool(api_key)}")
+                print(f"[DEBUG] USE_SENDGRID: {use_sg}")
+                print(f"[DEBUG] SendGridAPIClient imported: {SendGridAPIClient is not None}")
+                
+                if use_sg and SendGridAPIClient:
                     print(f"[DEBUG] Using SendGrid to send email")
                     
                     from sendgrid.helpers.mail import Email, Content, ReplyTo, To
                     
-                    sg = SendGridAPIClient(app.config.get('SENDGRID_API_KEY'))
+                    sg = SendGridAPIClient(api_key)
                     from_email = Email(app.config.get('MAIL_DEFAULT_SENDER'))
                     to_email = To('pcpl2626@gmail.com')
                     subject = f"New Contact Form Submission: {contact_data['subject']}"
