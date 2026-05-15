@@ -479,50 +479,50 @@ function setupLightbox(imageFiles) {
     });
 }
         
+        
         // Handle Contact Form
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const messageDiv = document.getElementById('form-message');
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    
-    // Show loading state
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-    
-    const formData = new FormData(contactForm);
-    
-    try {
-        const response = await fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        });
-        
-        if (response.ok) {
-            messageDiv.className = 'bg-green-100 text-green-700 border border-green-400 p-4 rounded-lg';
-            messageDiv.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Thank you! Your message has been sent successfully.';
-            contactForm.reset();
-            setTimeout(() => { messageDiv.classList.add('hidden'); }, 5000);
-        } else {
-            const result = await response.json();
-            messageDiv.className = 'bg-red-100 text-red-700 border border-red-400 p-4 rounded-lg';
-            messageDiv.innerHTML = '<i class="fas fa-times-circle mr-2"></i>' + (result.error || 'Something went wrong. Please try again.');
-        }
-        
-        messageDiv.classList.remove('hidden');
-        
-    } catch (error) {
-        messageDiv.className = 'bg-red-100 text-red-700 border border-red-400 p-4 rounded-lg';
-        messageDiv.innerHTML = '<i class="fas fa-times-circle mr-2"></i>An error occurred. Please try again.';
-        messageDiv.classList.remove('hidden');
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message';
-    }
-});
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const messageDiv = document.getElementById('form-message');
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                const formData = new FormData(contactForm);
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        messageDiv.className = 'bg-green-100 text-green-700 border border-green-400 p-4 rounded-lg';
+                        messageDiv.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Thank you! Your message has been sent successfully.';
+                        contactForm.reset();
+                        setTimeout(() => { messageDiv.classList.add('hidden'); }, 5000);
+                    } else {
+                        const result = await response.json();
+                        messageDiv.className = 'bg-red-100 text-red-700 border border-red-400 p-4 rounded-lg';
+                        messageDiv.innerHTML = '<i class="fas fa-times-circle mr-2"></i>' + (result.error || 'Something went wrong. Please try again.');
+                    }
+
+                    messageDiv.classList.remove('hidden');
+
+                } catch (error) {
+                    messageDiv.className = 'bg-red-100 text-red-700 border border-red-400 p-4 rounded-lg';
+                    messageDiv.innerHTML = '<i class="fas fa-times-circle mr-2"></i>An error occurred. Please try again.';
+                    messageDiv.classList.remove('hidden');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }
+            });
         }
 
         // Copy Email to Clipboard
